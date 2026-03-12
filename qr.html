@@ -18,7 +18,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
-        const base = window.location.origin + '/index.html';
+        // explicitly use the deployed URL so printed QR always points correctly
+        const base = 'https://treasure-hunt-vaag.onrender.com/index.html';
         new QRCode(document.getElementById('qr'), {
             text: base,
             width: 200,
