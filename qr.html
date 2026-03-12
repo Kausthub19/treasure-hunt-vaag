@@ -10,35 +10,23 @@
     </style>
 </head>
 <body>
-    <h1>Scan a QR to start</h1>
-    <div class="qr" id="puzzle1">
-        <div id="qr1"></div>
-        <div>Puzzle 1</div>
-    </div>
-    <div class="qr" id="puzzle2">
-        <div id="qr2"></div>
-        <div>Puzzle 2</div>
-    </div>
-    <div class="qr" id="puzzle3">
-        <div id="qr3"></div>
-        <div>Puzzle 3</div>
+    <h1>Scan the QR to begin</h1>
+    <div class="qr" id="puzzle">
+        <div id="qr"></div>
+        <div>Puzzle</div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
-        // compute base URL dynamically or hardcode your deployment
-        const base = window.location.origin + '/index.html?p=';
-        for (let i = 1; i <= 3; i++) {
-            new QRCode(document.getElementById('qr' + i), {
-                text: base + i,
-                width: 200,
-                height: 200
-            });
-            // make the entire div clickable
-            document.getElementById('puzzle' + i).addEventListener('click', () => {
-                window.location.href = base + i;
-            });
-        }
+        const base = window.location.origin + '/index.html';
+        new QRCode(document.getElementById('qr'), {
+            text: base,
+            width: 200,
+            height: 200
+        });
+        document.getElementById('puzzle').addEventListener('click', () => {
+            window.location.href = base;
+        });
     </script>
 </body>
 </html>
